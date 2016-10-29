@@ -2,24 +2,19 @@
 <html>
 <head>
 	<title>Home</title>
-	
-	<!-- JAVASCRIPT REQUIREMENTS -->
+<script
+  src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+  crossorigin="anonymous"></script>
 
-		<!-- JQUERY FOR EVERYTHING THAT MIGHT REQUIRE IT -->
-		<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-		<!-- BOOTSTRAP JS -->
-		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-	<!-- STYLING FOR DOCUMENT -->	
-
-		<!-- BOOTSTRAP -->
-		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-		<!-- BOOTSTRAP THEME -->
-		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-
-		
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>		
 
 
 </head>
@@ -38,14 +33,18 @@
 
 		<h2>Only have 5 tables! Book your seat before they all are gone!</h2>
 			
-			<button class="btn btn-primary">View Table</button>
-			<button class="btn btn-danger">Make Reservation</button>
+			<a href="/tables">
+				<button class="btn btn-primary">View Table</button>
+			</a>
+			<a href="/home">
+				<button class="btn btn-danger">Home</button>
+			</a>
 
 		</div>
 
 	
 	<div class="container-fluid">
-		<form class="form-control">
+		<form class="well">
 				  <div class="form-group ">
 				    <label for="InputName">Name</label>
 				    <input type="name" class="check" id="InputName">
@@ -81,10 +80,6 @@ var id = $("#InputUnique");
 
 		function validateForm() {
 				  var isValid = true;
-				  $('.form-control').each(function() {
-				    if ( $(this).val() === '' )
-				        isValid = false;
-				  });
 
 				  $(".check").each(function(){
 				  	
