@@ -3,9 +3,9 @@
 <head>
 	<title>Home</title>
 <script
-  src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-  crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  ></script>
+
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -19,10 +19,7 @@
 
 </head>
 
-
 <body>
-
-
 <div class="container-fluid">
 
 	<div class="jumbotron text-center">
@@ -33,18 +30,14 @@
 
 		<h2>Only have 5 tables! Book your seat before they all are gone!</h2>
 			
-			<a href="/tables">
-				<button class="btn btn-primary">View Table</button>
-			</a>
-			<a href="/home">
-				<button class="btn btn-danger">Home</button>
-			</a>
+			<button class="btn btn-primary">View Table</button>
+			<button class="btn btn-danger">Make Reservation</button>
 
 		</div>
 
 	
 	<div class="container-fluid">
-		<form class="well">
+		<form class="form-control">
 				  <div class="form-group ">
 				    <label for="InputName">Name</label>
 				    <input type="name" class="check" id="InputName">
@@ -71,26 +64,28 @@
 // STATING GLOBAL VARIABLES
 // ===========================
 
-$("#submit").on("click", function() {
+$(document).ready(function(){
+
+$("#submit").on("click", function(e) {
+
+	e.preventDefault();
 
 var name = $("#InputName").val().trim();
 var number = $("#InputPhoneNumber").val().trim();
 var email = $("#InputEmail1").val().trim();
 var id = $("#InputUnique").val().trim();
 
+console.log(name);
+
 		function validateForm() {
-<<<<<<< HEAD
-				  var isValid = true;
-=======
-		  var isValid = true;
->>>>>>> 5ab8d5d929be81ca2e74364bfec7f1fbccf30592
 
-		  $('.form-control').each(function() {
-		    if ( $(this).val() === '' )
-		        isValid = false;
-		  });
+		  if(name === '' || name === null){
 
-		  return isValid;
+		  	return false;
+
+		  }
+
+		  return true;
 		 }
 
 		 // If all required fields are filled
@@ -109,15 +104,26 @@ var id = $("#InputUnique").val().trim();
 	    	// Grab the URL of the website
 	    	var currentURL = window.location.origin;
 
-	    	// AJAX post the data to the friends API. 
+	    	// AJAX post the data to the friends API.
+
+	  //   	$.ajax({
+			//   type: "POST",
+			//   url: currentURL,
+			//   data: userData,
+			//   success: 200,
+			//   dataType: JSON
+			// });
+
 	    	$.post(currentURL + "/api/new", userData, function(data){
 
-	    		// // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-	    		// $("#matchName").text(data.name);
-	    		// $('#matchImg').attr("src", data.photo);
+	    	// 	// // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+	    	// 	// $("#matchName").text(data.name);
+	    	// 	// $('#matchImg').attr("src", data.photo);
 
-		    	// // Show the modal with the best match 
-		    	// $("#resultsModal").modal('toggle');
+	    	console.log('Here');
+
+		    // 	// // Show the modal with the best match 
+		    // 	// $("#resultsModal").modal('toggle');
 
 	    	});
 		}
@@ -129,6 +135,7 @@ var id = $("#InputUnique").val().trim();
     	return false;
     });
 
+});
 
 
 </script>
