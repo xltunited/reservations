@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	
+	<!-- JAVASCRIPT REQUIREMENTS -->
+
+		<!-- JQUERY FOR EVERYTHING THAT MIGHT REQUIRE IT -->
+		<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+
+		<!-- BOOTSTRAP JS -->
+		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<!-- STYLING FOR DOCUMENT -->	
+
+		<!-- BOOTSTRAP -->
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+		<!-- BOOTSTRAP THEME -->
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+
+		
+
+
+</head>
+
+
+<body>
+
+
+<div class="container-fluid">
+
+	<div class="jumbotron text-center">
+		
+		<h1>Hot Restaurant</h1>
+		
+		<hr>
+
+		<h2>Only have 5 tables! Book your seat before they all are gone!</h2>
+			
+			<button class="btn btn-primary">View Table</button>
+			<button class="btn btn-danger">Make Reservation</button>
+
+		</div>
+
+	
+	<div class="container-fluid">
+		<form class="form-control">
+				  <div class="form-group ">
+				    <label for="InputName">Name</label>
+				    <input type="name" class="check" id="InputName">
+				  </div>
+				  <div class="form-group ">
+				    <label for="InputPhoneNumber">Phone Number</label>
+				    <input type="number" class="check" id="InputPhoneNumber">
+				  </div>
+				  <div class="form-group ">
+				    <label for="InputEmail1">Email address</label>
+				    <input type="email" class="check" id="InputEmail1">
+				  </div>
+				  <div class="form-group ">
+				    <label for="InputUnique">Unique ID</label>
+				    <input type="unique" class="check" id="InputUnique">
+				  </div>
+				  <button type="submit" class="btn btn-default" id="submit">Submit</button>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+// ===========================
+// STATING GLOBAL VARIABLES
+// ===========================
+
+$("#submit").on("click", function() {
+
+var name = $("#InputName");
+var number = $("#InputPhoneNumber");
+var email = $("#InputEmail1");
+var id = $("#InputUnique");
+
+		function validateForm() {
+				  var isValid = true;
+				  $('.form-control').each(function() {
+				    if ( $(this).val() === '' )
+				        isValid = false;
+				  });
+
+				  $(".check").each(function(){
+				  	
+				  	if( $(this).val() === "")
+				  		isValid = false
+
+				  })
+				  return isValid;
+				 }
+
+		 // If all required fields are filled
+		if (validateForm() == true)
+		{
+			// Create an object for the user's data
+	    	var userData = {
+	    		name: name,
+	    		number: number,
+	    		email: email,
+	    		uniqueID: id
+	    	}
+
+	    	// Grab the URL of the website
+	    	var currentURL = window.location.origin;
+
+	    	// AJAX post the data to the friends API. 
+	    	$.post(currentURL + "/api/new", userData, function(data){
+
+	    		// // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+	    		// $("#matchName").text(data.name);
+	    		// $('#matchImg').attr("src", data.photo);
+
+		    	// // Show the modal with the best match 
+		    	// $("#resultsModal").modal('toggle');
+
+	    	});
+		}
+		else
+		{
+			alert("Please fill out all fields before submitting!");
+		}
+    	
+    	return false;
+    });
+
+};
+
+
+
+</script>
+</body>
+</html>
