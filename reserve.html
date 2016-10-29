@@ -73,22 +73,25 @@
 
 $("#submit").on("click", function() {
 
-var name = $("#InputName");
-var number = $("#InputPhoneNumber");
-var email = $("#InputEmail1");
-var id = $("#InputUnique");
+var name = $("#InputName").val().trim();
+var number = $("#InputPhoneNumber").val().trim();
+var email = $("#InputEmail1").val().trim();
+var id = $("#InputUnique").val().trim();
 
 		function validateForm() {
+<<<<<<< HEAD
 				  var isValid = true;
+=======
+		  var isValid = true;
+>>>>>>> 5ab8d5d929be81ca2e74364bfec7f1fbccf30592
 
-				  $(".check").each(function(){
-				  	
-				  	if( $(this).val() === "")
-				  		isValid = false
+		  $('.form-control').each(function() {
+		    if ( $(this).val() === '' )
+		        isValid = false;
+		  });
 
-				  })
-				  return isValid;
-				 }
+		  return isValid;
+		 }
 
 		 // If all required fields are filled
 		if (validateForm() == true)
@@ -100,6 +103,8 @@ var id = $("#InputUnique");
 	    		email: email,
 	    		uniqueID: id
 	    	}
+
+	    	console.log(userData);
 
 	    	// Grab the URL of the website
 	    	var currentURL = window.location.origin;
@@ -123,8 +128,6 @@ var id = $("#InputUnique");
     	
     	return false;
     });
-
-};
 
 
 

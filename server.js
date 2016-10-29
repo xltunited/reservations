@@ -17,12 +17,17 @@ app.get('/tables', function (req, res) {
 	res.sendFile(path.join(__dirname, 'tables.html'));
 });
 
+<<<<<<< HEAD
 app.get('/reserve', function (req, res) {
 	res.sendFile(path.join(__dirname, 'reserve.html'));
 });
 
 app.get('/home', function (req, res) {
 	res.sendFile(path.join(__dirname, 'home.html'));
+=======
+app.get('/make', function (req, res) {
+	res.sendFile(path.join(__dirname, 'reserve.html'));
+>>>>>>> 5ab8d5d929be81ca2e74364bfec7f1fbccf30592
 });
 
 app.get('/', function (req, res) {
@@ -51,5 +56,11 @@ app.get('/api/:tables?', function (req, res) {
 app.get('/api/:waitingList?', function (req, res) {
 
 		res.json(waitingList);
+
+});
+
+app.post('/api/new', function (req, res) {
+
+	console.log(req.body);
 
 });
