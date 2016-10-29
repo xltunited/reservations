@@ -10,6 +10,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
+//Routes
+
+app.get('/view', function (req, res) {
+	res.sendFile(path.join(__dirname, 'view.html'));
+});
+
+app.get('/make', function (req, res) {
+	res.sendFile(path.join(__dirname, 'make.html'));
+});
+
+app.get('/', function (req, res) {
+	res.sendFile(path.join(__dirname, 'home.html'));
+});
 
 
 // Listener
