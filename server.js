@@ -17,7 +17,7 @@ app.get('/view', function (req, res) {
 });
 
 app.get('/make', function (req, res) {
-	res.sendFile(path.join(__dirname, 'make.html'));
+	res.sendFile(path.join(__dirname, 'reserve.html'));
 });
 
 app.get('/', function (req, res) {
@@ -46,5 +46,11 @@ app.get('/api/:tables?', function (req, res) {
 app.get('/api/:waitingList?', function (req, res) {
 
 		res.json(waitingList);
+
+});
+
+app.post('/api/new', function (req, res) {
+
+	console.log(req.body);
 
 });
